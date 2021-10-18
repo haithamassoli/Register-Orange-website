@@ -1,3 +1,16 @@
 nav {
   border-bottom: 3px solid black;
 }
+
+.text-danger {
+  color: red;
+}
+
+.eg {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+img {
+  object-fit: cover;
+}
