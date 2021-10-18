@@ -14,44 +14,59 @@ function removeError(err) {
 
 email.addEventListener("blur", (e) => {
   try {
-    if (e.target.value === "") throw "Email is empty";
+    if (e.target.value === "") throw "The email shouldn't be empty!";
     if (e.target.value !== "") removeError(emailErr);
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value))
       throw "You have entered an invalid email address!";
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value))
       removeError(emailErr);
   } catch (error) {
-    emailErr.innerHTML = "Input is " + error;
+    emailErr.innerHTML = error;
   }
 });
 number.addEventListener("blur", (e) => {
   try {
-    if (e.target.value === "") throw "Mobile is empty ";
+    if (e.target.value === "") throw "The mobile shouldn't be empty!";
     if (e.target.value !== "") removeError(numberErr);
     if (!/077[0-9]{7,7}$/.test(e.target.value))
-      throw "You have entered an invalid number!";
+      throw "You have entered an invalid mobile number";
     if (/077[0-9]{7,7}$/.test(e.target.value)) removeError(numberErr);
   } catch (error) {
-    numberErr.innerHTML = "Input is " + error;
+    numberErr.innerHTML = error;
   }
 });
 password.addEventListener("blur", (e) => {
   try {
-    if (e.target.value === "") throw "Password is empty";
+    if (e.target.value === "") throw "The password shouldn't be empty!";
     if (e.target.value !== "") removeError(passwordErr);
     if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,18}$/.test(e.target.value))
-      throw "You have entered an invalid password!";
+      throw "A password contains at least 6-18 characters, one number, lower and uppercase letters and special characters";
     if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,18}$/.test(e.target.value))
       removeError(passwordErr);
   } catch (error) {
-    passwordErr.innerHTML = "Input is " + error;
+    passwordErr.innerHTML = error;
   }
 });
-signBtn.addEventListener("click", (e) => {
+checkbox.addEventListener("change", (e) => {
   try {
-    if (!checkbox.checked) throw "check is required";
+    if (!checkbox.checked) throw "The checkbox should be checked";
     if (checkbox.checked) removeError(checkboxErr);
   } catch (error) {
     checkboxErr.innerHTML = error;
   }
+});
+
+signBtn.addEventListener("click", () => {
+  email.value == ""
+    ? (emailErr.innerHTML = "The email shouldn't be empty")
+    : "";
+  number.value == ""
+    ? (numberErr.innerHTML = "The mobile shouldn't be empty")
+    : "";
+  password.value == ""
+    ? (passwordErr.innerHTML = "The password shouldn't be empty")
+    : "";
+  !checkbox.checked
+    ? (checkboxErr.innerHTML = "The checkbox should be checked")
+    : "";
 });
