@@ -1,9 +1,12 @@
 const email = document.getElementById("emailRec");
 const number = document.getElementById("numberRec");
 const password = document.getElementById("passwordRec");
+const checkbox = document.getElementById("checkboxRec");
+const signBtn = document.getElementById("signBtn");
 const emailErr = document.querySelector(".emailErr");
 const numberErr = document.querySelector(".numberErr");
 const passwordErr = document.querySelector(".passwordErr");
+const checkboxErr = document.querySelector(".checkboxErr");
 
 function removeError(err) {
   err.innerHTML = "";
@@ -42,5 +45,13 @@ password.addEventListener("blur", (e) => {
       removeError(passwordErr);
   } catch (error) {
     passwordErr.innerHTML = "Input is " + error;
+  }
+});
+signBtn.addEventListener("click", (e) => {
+  try {
+    if (!checkbox.checked) throw "check is required";
+    if (checkbox.checked) removeError(checkboxErr);
+  } catch (error) {
+    checkboxErr.innerHTML = error;
   }
 });

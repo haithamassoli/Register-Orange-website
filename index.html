@@ -106,31 +106,39 @@
         <div class="row ms-2 p-0 justify-content-center">
           <div class="form-check col-7">
             <input
-              class="form-check-input mt-4 mb-4"
+              class="form-check-input mt-4"
+              id="checkboxRec"
               type="checkbox"
               required
               value=""
               id="flexCheckDefault"
             />
-            <label class="required mt-4 mb-4">
+            <label class="required mt-4">
               I agree to the <a href="">terms & conditions</a> Orange.
             </label>
+            <div class="mt-2">
+              <span class="checkboxErr text-danger"></span>
+            </div>
           </div>
           <div class="form-check col-7">
             <input
-              class="form-check-input"
+              class="form-check-input mt-4"
               type="checkbox"
               value=""
               id="flexCheckChecked"
               checked
             />
-            <label class="form-check-label" for="flexCheckChecked">
+            <label class="form-check-label mt-4" for="flexCheckChecked">
               Receive Coding Academy Newsletter.
             </label>
           </div>
         </div>
         <div class="row ms-2 p-0 justify-content-center">
-          <button type="button" class="btn btn-primary col-7 mt-5 mb-4">
+          <button
+            type="button"
+            class="btn btn-primary col-7 mt-5 mb-4"
+            id="signBtn"
+          >
             Sign Up
           </button>
           <button type="button" class="btn btn-secondary col-7 mb-5">
