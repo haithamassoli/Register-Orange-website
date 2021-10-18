@@ -25,9 +25,9 @@ number.addEventListener("blur", (e) => {
   try {
     if (e.target.value === "") throw "Mobile is empty ";
     if (e.target.value !== "") removeError(numberErr);
-    if (!/077[0-9]{7}/.test(e.target.value))
+    if (!/077[0-9]{7,7}$/.test(e.target.value))
       throw "You have entered an invalid number!";
-    if (/077[0-9]{7}/.test(e.target.value)) removeError(numberErr);
+    if (/077[0-9]{7,7}$/.test(e.target.value)) removeError(numberErr);
   } catch (error) {
     numberErr.innerHTML = "Input is " + error;
   }
